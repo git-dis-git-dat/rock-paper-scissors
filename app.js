@@ -2,6 +2,18 @@
 
 function getComputerChoice(){
     // return r, p, or s using math.random and console log it
+    const number = Math.floor(Math.random() * 3)
+    let roll = '';
+
+    if (number === 0){
+        roll = 'rock';
+    } else if (number === 1){
+        roll = 'paper'
+    } else {
+        roll = 'scissors'
+    }
+    
+    return console.log(roll);
 }
 
 function getHumanChoice(){
