@@ -12,7 +12,7 @@ function getComputerChoice(){
     } else {
         roll = "scissors"
     }
-    
+
     return roll;
 }
 
@@ -22,14 +22,17 @@ function getHumanChoice(){
     return choice.toLowerCase();
 }
 
-let humanScore = 0;
-let computerScore = 0;
+// playRound(humanSelection, computerSelection);
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame(){
 
-function playRound(humanChoice, computerChoice) {
-    
+    // const humanSelection = getHumanChoice();
+    // const computerSelection = getComputerChoice();
+
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function playRound(humanChoice, computerChoice) {
     // round logic
     if (humanChoice === "rock" && computerChoice === "scissors"){
         console.log("nice! " + `${humanChoice}` + " beats " + `${computerChoice}`)
@@ -47,20 +50,18 @@ function playRound(humanChoice, computerChoice) {
         console.log("try again! " + `${computerChoice}` + " beats " + `${humanChoice}`)
         return computerScore++;
     }
-
-    // console.log round winner
-
-    // increment humanScore or computerScore based on round winner
-    
 }
 
-playRound(humanSelection, computerSelection);
+let roundCount = 0;
 
-function playGame(){
-    //move playRound() in here and score variables
-    //5 found game
+while (roundCount < 5) {
+    roundCount++
+    playRound(getHumanChoice(), getComputerChoice());
+    // if (humanScore === 3 || computerScore === 3) {return alert("Game Over")}
+}
 }
 
+playGame();
 
 // rock > scissors
 // paper > rock
