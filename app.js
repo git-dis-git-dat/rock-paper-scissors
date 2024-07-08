@@ -1,7 +1,7 @@
 "use strict"
 
 function getComputerChoice(){
-    // return r, p, or s using math.random and console log it
+
     const number = Math.floor(Math.random() * 3)
     let roll = "";
 
@@ -17,17 +17,12 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    // get r, p, or s from user via prompt and return it, and console log it
+
     const choice = prompt("Rock, Paper, or Scissors?", "")
     return choice.toLowerCase();
 }
 
-// playRound(humanSelection, computerSelection);
-
 function playGame(){
-
-    // const humanSelection = getHumanChoice();
-    // const computerSelection = getComputerChoice();
 
     let humanScore = 0;
     let computerScore = 0;
