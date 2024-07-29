@@ -23,6 +23,7 @@ function playGame(){
 
     let score = document.querySelector("#score");
     let roundResults = document.querySelector("#round-results");
+    let gameResult = document.querySelector("#game-result");
 
     function scoreRoundUpdate(){
         
@@ -33,27 +34,34 @@ function playGame(){
         if (humanChoice === "rock" && computerChoice === "scissors"){
             humanScore++;
             score.textContent = "You: " + `${humanScore}` + " | Computer: " + `${computerScore}`;
-            roundResults.textContent = "Computer rolled " + `${computerChoice}` + ". You rolled " + `${humanChoice}` + "You win!";
-            return
+            roundResults.textContent = "Computer rolled " + `${computerChoice}` + ". You rolled " + `${humanChoice}` + ". You win!";
         } else if (humanChoice === "paper" && computerChoice === "rock"){
             humanScore++;
             score.textContent = "You: " + `${humanScore}` + " | Computer: " + `${computerScore}`;
-            roundResults.textContent = "Computer rolled " + `${computerChoice}` + ". You rolled " + `${humanChoice}` + "You win!";
-            return
+            roundResults.textContent = "Computer rolled " + `${computerChoice}` + ". You rolled " + `${humanChoice}` + ". You win!";
         } else if (humanChoice === "scissors" && computerChoice === "paper"){
             humanScore++;
             score.textContent = "You: " + `${humanScore}` + " | Computer: " + `${computerScore}`;
-            roundResults.textContent = "Computer rolled " + `${computerChoice}` + ". You rolled " + `${humanChoice}` + "You win!";
-            return
+            roundResults.textContent = "Computer rolled " + `${computerChoice}` + ". You rolled " + `${humanChoice}` + ". You win!";
         } else if (humanChoice === computerChoice){
             score.textContent = "You: " + `${humanScore}` + " | Computer: " + `${computerScore}`;
             roundResults.textContent = "Computer rolled " + `${computerChoice}`+ ". You rolled " + `${humanChoice}` + ". It's a tie :O"
-            return
         } else {
             computerScore++;
             score.textContent = "You: " + `${humanScore}` + " | Computer: " + `${computerScore}`;
             roundResults.textContent = "Computer rolled " + `${computerChoice}`+ ". You rolled " + `${humanChoice}` + ". Computer wins!"
-            return 
+        }
+
+        if (humanScore === 5){
+            gameResult.textContent = "You win the game!"
+            humanScore = 0;
+            computerScore = 0;
+        } else if (computerScore === 5){
+            gameResult.textContent = "Computer wins the game!"
+            humanScore = 0;
+            computerScore = 0;
+        } else {
+            gameResult.textContent = "";
         }
     }
 
@@ -75,7 +83,7 @@ function playGame(){
                 case "scissors":
                     choice = target.id;
             }
-            return playRound(choice, getComputerChoice());
+            playRound(choice, getComputerChoice());
         });
     }
     getHumanChoice();
