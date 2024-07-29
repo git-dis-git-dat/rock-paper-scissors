@@ -21,22 +21,24 @@ function playGame(){
     let humanScore = 0;
     let computerScore = 0;    
 
+    let results = document.querySelector("#results");
+
     function playRound(humanChoice, computerChoice) {
     // round logic
         if (humanChoice === "rock" && computerChoice === "scissors"){
-            console.log("nice! " + `${humanChoice}` + " beats " + `${computerChoice}`)
+            results.textContent = "nice! " + `${humanChoice}` + " beats " + `${computerChoice}`;
             return humanScore++;
         } else if (humanChoice === "paper" && computerChoice === "rock"){
-            console.log("nice! " + `${humanChoice}` + " beats " + `${computerChoice}`)
+            results.textContent = "nice! " + `${humanChoice}` + " beats " + `${computerChoice}`;
             return humanScore++;
         } else if (humanChoice === "scissors" && computerChoice === "paper"){
-            console.log("nice! " + `${humanChoice}` + " beats " + `${computerChoice}`)
+            results.textContent = "nice! " + `${humanChoice}` + " beats " + `${computerChoice}`;
             return humanScore++;
         } else if (humanChoice === computerChoice){
-            console.log("Tie")
+            results.textContent = "Tie";
             return
         } else {
-            console.log("try again! " + `${computerChoice}` + " beats " + `${humanChoice}`)
+            results.textContent = "try again! " + `${computerChoice}` + " beats " + `${humanChoice}`;
             return computerScore++;
         }
     }
@@ -47,7 +49,7 @@ function playGame(){
         let choice = "";
     
         container.addEventListener("click", (e)=>{
-            let target = e.target;
+        let target = e.target;
     
             switch(target.id){
                 case "rock":
@@ -62,16 +64,7 @@ function playGame(){
             return playRound(choice, getComputerChoice());
         });
     }
-
     getHumanChoice();
-    // let roundCount = 0;
-
-    // while (roundCount < 5) {
-    //     roundCount++
-    //     playRound(getHumanChoice(), getComputerChoice());
-    // }
 }
-
-
 
 playGame();
