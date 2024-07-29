@@ -16,32 +16,10 @@ function getComputerChoice(){
     return roll;
 }
 
-function getHumanChoice(){
-
-    const container = document.querySelector("#container");
-    let choice = "";
-
-    container.addEventListener("click", (e)=>{
-        let target = e.target;
-
-        switch(target.id){
-            case "rock":
-                choice = target.id;
-                break
-            case "paper":
-                choice = target.id;
-                break
-            case "scissors":
-                choice = target.id;
-        }
-        return choice
-    });
-}
-
 function playGame(){
 
     let humanScore = 0;
-    let computerScore = 0;
+    let computerScore = 0;    
 
     function playRound(humanChoice, computerChoice) {
     // round logic
@@ -63,7 +41,30 @@ function playGame(){
         }
     }
 
-    let roundCount = 0;
+    function getHumanChoice(){
+
+        const container = document.querySelector("#container");
+        let choice = "";
+    
+        container.addEventListener("click", (e)=>{
+            let target = e.target;
+    
+            switch(target.id){
+                case "rock":
+                    choice = target.id;
+                    break
+                case "paper":
+                    choice = target.id;
+                    break
+                case "scissors":
+                    choice = target.id;
+            }
+            return playRound(choice, getComputerChoice());
+        });
+    }
+
+    getHumanChoice();
+    // let roundCount = 0;
 
     // while (roundCount < 5) {
     //     roundCount++
@@ -74,8 +75,3 @@ function playGame(){
 
 
 playGame();
-// getHumanChoice();
-// rock > scissors
-// paper > rock
-// scissors > paper
-// else its a tie
