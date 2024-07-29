@@ -52,6 +52,7 @@ function playGame(){
             roundResults.textContent = "Computer rolled " + `${computerChoice}`+ ". You rolled " + `${humanChoice}` + ". Computer wins!"
         }
 
+        // game win logic
         if (humanScore === 5){
             gameResult.textContent = "You win the game!"
             humanScore = 0;
